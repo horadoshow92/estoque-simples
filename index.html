@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque Simples</title>
+</head>
+<body>
+    <h1>Cadastro de Pessoas</h1>
+    <a href="adicionar_pessoa.html">Adicionar Pessoa</a>
+    <ul id="pessoa-list">
+        <!-- Lista de pessoas será exibida aqui -->
+    </ul>
+    <script>
+        const pessoas = [];
+
+        function atualizarLista() {
+            const lista = document.getElementById('pessoa-list');
+            lista.innerHTML = '';
+            pessoas.forEach(p => {
+                const li = document.createElement('li');
+                li.textContent = `${p.nome} - ${p.telefone} - ${p.endereco} - ${p.data_adicao} - ${p.objeto_estoque} - ${p.documento} - Devolvido: ${p.devolvido ? 'Sim' : 'Não'}`;
+                lista.appendChild(li);
+            });
+        }
+
+        window.onload = function() {
+            atualizarLista();
+        };
+    </script>
+</body>
+</html>
